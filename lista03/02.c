@@ -1,23 +1,28 @@
-#include  <stdio.h>
+#include <stdio.h>
 #include <string.h>
 
-int conta_vogal(char entrada [])
+int tamanho(char entrada[])
 {
-	int cont = 0;
-	for(int i=0; i<strlen(entrada); i++)
+	int cont =0;
+	while(entrada[cont] != '\0') cont++;
+	return cont-1;
+}
+
+void inverter(char entrada [])
+{	
+	for(int i = tamanho(entrada); i >= 0; i--)
 	{
-		if ((entrada[i] == 'a')|| (entrada[i] == 'e')||(entrada[i] =='i')||(entrada[i] == 'o')||(entrada[i] == 'u')) cont++;
+	 	printf("%c", entrada[i]);	
 	}
-	return cont;
+	printf("\n");
 }
 	
 
+
 int main()
-{	
-	int cont;
+{
 	char entrada[255]; 
 	fgets(entrada, 255, stdin);
-
-	printf("%d\n", conta_vogal(entrada));
+	inverter(entrada);
 	return 0;
 }
